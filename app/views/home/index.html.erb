@@ -1,0 +1,18 @@
+<h1>Pay to wait</h1>
+<% if current_user.payment_processor.on_trial_or_subscribed? %>
+  <h2>Wow, you're subscribed to the <%=current_user.payment_processor.subscription.processor_plan%> plan!</h2>
+
+  <h3> Pay us to wait </h3>
+  <%= button_to 'Take my money', time_sinks_path, method: 'post'  %>
+
+  <h3>Charges</h3>
+  <%current_user.payment_processor.charges.each do |charge| %>
+    <li>ID: <%= charge.id %>  amount_in_cents: <%= charge.amount %></li>
+  <%end%>
+
+<% else %>
+  <%= button_to 'monthly', subscriptions_path(plan_code: 'monthly'), method: 'post'  %>
+  <br />
+  <%= button_to 'yearly', subscriptions_path(plan_code: 'yearly'), method: 'post'  %>
+<% end %>
+
