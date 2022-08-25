@@ -5,6 +5,9 @@ Rails.application.routes.draw do
   }
   resource :subscriptions, only: [:create]
   resource :time_sinks, only: [:create]
+
+  post 'webhooks/lago', to: 'webhooks/lago#create'
+
   get 'home/index'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

@@ -75,3 +75,5 @@ group :test do
 end
 
 gem "lago-ruby-client", "~> 0.4.1"
+
+gem "jwt", "~> 2.4"
