@@ -241,7 +241,7 @@ The `config/routes.rb` file will also need to be update with the new endpoint by
 post 'webhooks/lago', to: 'webhooks/lago#create'
 ```
 
-**Job to process invoice.created webhook and charge customer **
+**Job to process invoice.created webhook and charge customer**
 
 Now it's time to make some money move! We're defaulting to storing all webhook events but that need will likely vary from application to application. I like to listen to any event that has to do with payment methods, charges, failures, account modification, etc. even if I don't do anything with them so I can add monitoring around them. 
 
