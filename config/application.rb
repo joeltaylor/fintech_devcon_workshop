@@ -19,4 +19,8 @@ module PayToWait
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
   end
+
+  def self.lago_client
+    @lago_client ||= ::Lago::Api::Client.new(api_key: ENV['LAGO_API_KEY'], api_url: ENV['LAGO_URL'])
+  end
 end
