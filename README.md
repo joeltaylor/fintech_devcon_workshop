@@ -1,4 +1,16 @@
 # Steps
+## Docker environment (YMMV)
+```
+# build container
+docker-compose build
+
+# start the container with ports
+docker-compose run --rm --service-ports ruby_dev
+
+# after following initial step you can start the server with
+rails server -p $PORT -b 0.0.0.0
+```
+
 ## Initial setup
 ```
 # Install gems
